@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -15,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/dollar.mp4')
+    _controller = VideoPlayerController.asset('assets/video/dollar-drop.mp4')
       ..initialize().then((_) {
         _controller.setLooping(true);
         _controller.play();
@@ -25,8 +24,11 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    super.dispose();
+    _controller.pause(); // Pausa o vídeo ao sair da tela de login
     _controller.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -88,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    _controller.pause(); // Pausa o vídeo ao navegar para a próxima tela
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Text('Entrar'),
