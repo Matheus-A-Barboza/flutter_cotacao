@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:flutter_atividade/model/favorite_currencies.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';

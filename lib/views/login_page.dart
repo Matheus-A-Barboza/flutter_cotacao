@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/dollar-drop.mp4')
+    _controller = VideoPlayerController.asset('assets/video/dollar.mp4')
       ..initialize().then((_) {
         _controller.setLooping(true);
         _controller.play();
@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    _controller.pause(); // Pausa o vídeo ao sair da tela de login
+    _controller.pause(); 
     _controller.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    _controller.pause(); // Pausa o vídeo ao navegar para a próxima tela
+                    _controller.pause(); 
                     Navigator.pushNamed(context, '/home');
                   },
                   child: Text('Entrar'),

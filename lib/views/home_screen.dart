@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'quotes_page.dart';
 import 'favorites_page.dart';
+import 'profile_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static List<Widget> _widgetOptions = <Widget>[
     QuotesPage(),
     FavoritesPage(),
+    ProfilePage()
   ];
 
   void _onItemTapped(int index) {
@@ -24,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Cotações de Moedas'),
       ),
       body: Center(
@@ -39,6 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.favorite),
             label: 'Favoritos',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle),
+            label: 'Profile',
+            )
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
