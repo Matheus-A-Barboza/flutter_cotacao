@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video/dollar.mp4')
+    _controller = VideoPlayerController.asset('')
       ..initialize().then((_) {
         _controller.setLooping(true);
         _controller.play();
