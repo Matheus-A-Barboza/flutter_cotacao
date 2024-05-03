@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> args =
+      ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final String email = args['username'];
+    final String username = args['email'];
+
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Perfil'),
       ),
       body: Center(
@@ -17,7 +23,7 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Nome do Usuário',
+              '$email',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -25,7 +31,7 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Endereço de Email',
+              '$username',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey,

@@ -1,55 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset('assets/video/dollar.mp4')
-      ..initialize().then((_) {
-        _controller.setLooping(true);
-        _controller.play();
-        setState(() {});
-      });
-  }
+  final TextEditingController _userController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
 
   @override
   void dispose() {
-    _controller.pause(); 
-    _controller.dispose();
+    super.dispose();
+    _userController.dispose();
+    _phoneController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    super.dispose();
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(
+        title: Text('Registrar'),
+      ),
       body: Stack(
         children: [
-          SizedBox.expand(
-            child: FittedBox(
-              fit: BoxFit.cover,
-              child: SizedBox(
-                width: _controller.value.size.width,
-                height: _controller.value.size.height,
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -57,11 +34,24 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Image.asset(
                   'assets/img/1.png',
-                  height: 180.0,
-                  width: 180.0,
+                  height: 110.0,
+                  width: 110.0,
                   fit: BoxFit.contain,
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
+                TextFormField(
+                  controller: _userController,
+                  decoration: InputDecoration(
+                    labelText: 'Usuário',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 20),
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
@@ -90,16 +80,14 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    _controller.pause(); 
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  child: Text('Entrar'),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    _controller.pause(); 
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(
+                      context,
+                      '/home',
+                      arguments: {
+                        'username': _userController.text,
+                        'email': _emailController.text,
+                      },
+                    );
                   },
                   child: Text('Registrar'),
                 ),

@@ -5,6 +5,7 @@ import 'package:flutter_atividade/views/home_screen.dart';
 import 'package:flutter_atividade/views/login_page.dart';
 import 'package:flutter_atividade/views/profile_page.dart';
 import 'package:flutter_atividade/views/quotes_page.dart';
+import 'package:flutter_atividade/views/register_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
           '/': (context) => LoginPage(),
           '/home': (context) => HomeScreen(),
           '/quotes': (context) => QuotesPage(), 
-          '/profile':(context) => ProfilePage(), // Adicione esta linha
+          '/profile':(context) => ProfilePage(), 
+          '/register':(context) => RegisterPage(),
         },
         onUnknownRoute: (settings) {
           return MaterialPageRoute(builder: (context) => LoginPage());  // Página padrão para rotas desconhecidas
