@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/model/currency_quotes.dart';
+import 'package:COTA.AI/model/currency_quotes.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_atividade/model/favorite_currencies.dart';
+import 'package:COTA.AI/model/favorite_currencies.dart';
 
 class FavoritesPage extends StatelessWidget {
   @override

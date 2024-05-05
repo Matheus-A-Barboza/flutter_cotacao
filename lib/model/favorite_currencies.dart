@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_atividade/model/currency_quotes.dart';
+import 'package:COTA.AI/model/currency_quotes.dart';
 
 class FavoriteCurrencies with ChangeNotifier {
   List<CurrencyQuote> _favorites = [];

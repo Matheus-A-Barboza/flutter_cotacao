@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_atividade/model/currency_quotes.dart';
-import 'package:flutter_atividade/model/favorite_currencies.dart';
-import 'package:flutter_atividade/views/home_screen.dart';
-import 'package:flutter_atividade/views/login_page.dart';
-import 'package:flutter_atividade/views/profile_page.dart';
-import 'package:flutter_atividade/views/quotes_page.dart';
-import 'package:flutter_atividade/views/register_page.dart';
+import 'package:COTA.AI/model/favorite_currencies.dart';
+import 'package:COTA.AI/views/home_screen.dart';
+import 'package:COTA.AI/views/login_page.dart';
+import 'package:COTA.AI/views/profile_page.dart';
+import 'package:COTA.AI/views/quotes_page.dart';
+import 'package:COTA.AI/views/register_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
